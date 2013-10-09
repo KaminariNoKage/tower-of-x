@@ -1,0 +1,5 @@
+Kai Austin & Michael Ninh
+Software Design Final Project Fall 2012
+
+Menu_Key folder holds everything related to the main menu on the screen
+and the popup menus used where needed.

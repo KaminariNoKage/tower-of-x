@@ -1,0 +1,23 @@
+#Kai Austin & Michael Ninh
+#popmenu.py
+#Creates a Pop up menu in the game screen
+
+import pygame
+import inputbox
+import MathModule as mathmod
+from pygame.locals import *
+
+def generate():
+    """ Generates a puzzle, a string for the question, and an answer """
+    new_puzzle = mathmod.MathPuzzle()
+    problem = new_puzzle.displayProblem
+    return new_puzzle, problem
+
+def getinput(scrn):
+    puzzle, string = generate() #Generate a puzzle
+    answer = inputbox.ask(scrn, string) #Will get a string with answer
+    if puzzle.test(answer): #Determines if true or not
+        return True #If true, win and door does what wants
+    else:
+        getinput(scrn) #Else, repeat
+

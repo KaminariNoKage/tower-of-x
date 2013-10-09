@@ -1,0 +1,32 @@
+'''filename: getPuzzle
+method for randomly selecting puzzles'''
+
+import random 
+import mathPuzzle
+import anagramPuzzle
+import logicPuzzle
+
+class getPuzzle(object):
+    def __init__(self, ptype):
+	#ptype in range 0 - 2
+        self.__puzzleType = ptype
+
+    def callPuzzle(self,character):
+        if self.__puzzleType == 0:
+             mathPuzzler = mathPuzzle.mathPuzzle()
+             mathPuzzler.getMath()
+             mathPuzzler.checkA(character)
+        elif self.__puzzleType == 1:
+            anagramPuzzler = anagramPuzzle.anagramPuzzle()
+            anagramPuzzler.getWords()
+            anagramPuzzler.getAnswer()
+            anagramPuzzler.askQuestion(character)
+            return anagramPuzzler 
+        elif self.__puzzleType == 2:
+            logicPuzzler = logicPuzzle.logicPuzzle(character)
+            logicPuzzler.getQuestion()
+            logicPuzzler.checkA(character)
+            return logicPuzzle 
+            
+
+        

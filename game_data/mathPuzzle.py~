@@ -1,0 +1,37 @@
+'''fileName: mathPuzzle 
+class containing the math puzzles'''
+
+import random
+import newPointCalcModule
+
+
+class mathPuzzle(object):
+    def __init__(self):
+        self.__status = None
+        self._timer = newPointCalcModule.pointsCalc(0)#POINTS/TIMER MODULE
+        self._timer.startPoints(0) #POINTS/TIMER MODULE
+        num1 = random.randint(0,100)
+        num2 = random.randint(-50,150)
+        self.display = 'Solve: '+ str(num1)+ ' + ' + str(num2) + '/'#full puzzle
+        self.__Msolution = num1 + num2 #store solution
+        self._timer.puzzleDuration()
+
+    def checkMath(self, character, input_ans):
+        if str(input_ans) == str(self.__Msolution):
+            self.__status = True
+            self._timer.puzzlePoints(character) #correct points output
+            character.posChange()
+            return self.__status 
+        else: 
+            self.__status = False 
+            character.negChange()
+            self._timer.wrongAnswer(character)#correct points output
+            character.frustrationEnd()
+        
+            
+            
+    
+        
+        
+
+        

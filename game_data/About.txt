@@ -1,0 +1,14 @@
+Kai Austin & Michael Ninh
+
+GAME_DATA stores all the previously made functions to build
+and create the game world.
+
+The different files work as follows:
+
+anagramList 	=> Stores the list of Anagrams
+anagramPuzzle 	=> Makes anagram puzzle
+floor_data 	=> Makes and returns the first floor
+logicPuzzle	=> Makes Logic Puzzle
+logicPuzzleQuestions	=> Stores the Logic Puzzle Questions
+mathPuzzle	=> Makes the math puzzle
+newPointCalcModule	=> Uses a timer to calculate points based on time

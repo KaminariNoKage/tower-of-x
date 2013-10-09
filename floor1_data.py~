@@ -1,0 +1,12 @@
+#Kai Austin & Michael Ninh
+#Floor1_data.py
+
+#The follow is the data used to make and create the different
+#Rooms on the first floor.
+
+
+
+
+
+def make_floor_one():
+    """ Puts all the above together and returns the first floor """

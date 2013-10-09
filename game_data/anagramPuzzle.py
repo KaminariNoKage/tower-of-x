@@ -1,0 +1,56 @@
+'''filename: anagramPuzzle.py
+contains anagram puzzle
+puzzletype == 2'''
+import anagramList
+import random
+import newPointCalcModule
+
+class anagramPuzzle(object):
+    def __init__(self):
+        self.__getWords = self.getWords() #words used in puzzle
+        self.__status = None
+	self.display = 'How many anagrams are / present in the given list? /' + str(self.getWords())
+	self.__answer = self.getAnswer()
+	print self.__answer
+        
+    def getWords(self):
+        displayWords = []
+        listor = anagramList.anagramList()
+        masterList = listor.wordList()
+        for i in range(5):
+            displayWords.append(masterList[random.randint(0,len(masterList)-1)])
+        return  displayWords
+    
+    def getAnswer(self):
+        gotWords = self.__getWords 
+        sorter = []
+        for word in gotWords:
+		indivWord = list(word)
+		indivWord.sort()
+		fix =  ''.join(indivWord)
+		sorter.append(fix)
+	setter = set(sorter)
+        solution = len(sorter)-len(setter)+1
+        if solution == 1:
+            solution = 0
+	return solution
+    
+    def checkAnagram(self, character, input_ans):
+        self._timer = newPointCalcModule.pointsCalc(1)#POINT/TIMER MODULE
+        self._timer.startPoints(1) #POINT/TIMER MODULE
+        self._timer.puzzleDuration()
+        if int(input_ans) == self.__answer:
+            self.__status = True
+            character.posChange()
+            self._timer.puzzlePoints(character) #POINT/TIMER MODULE
+        else:
+            self.__status = False
+            character.negChange()
+            self._timer.wrongAnswer(character)
+            character.frustrationEnd()
+        return self.__status
+        
+                           
+                              
+        
+        
